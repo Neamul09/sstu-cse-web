@@ -1,0 +1,188 @@
+generator client {
+  provider        = "prisma-client-js"
+  engineType      = "library"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  TEACHER
+  CR
+  STUDENT
+  GUEST
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  role          Role      @default(GUEST)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  studentProfile StudentProfile?
+  teacherProfile TeacherProfile?
+  materials      Material[]
+  notices        Notice[]
+  assignments    Assignment[]
+  submissions    Submission[]
+}
+
+model StudentProfile {
+  id        String @id @default(cuid())
+  userId    String @unique
+  studentId String @unique
+  batch     String
+  section   String
+  cgpa      Float?
+  bio       String?
+  
+  user      User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attendances Attendance[]
+}
+
+model TeacherProfile {
+  id                String @id @default(cuid())
+  userId            String @unique
+  designation       String
+  officeHours       String?
+  researchInterests String?
+  publications      String? // Consider JSON or array for multiple
+  
+  user              User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Course {
+  id          String @id @default(cuid())
+  code        String @unique
+  name        String
+  credits     Float
+  semester    Int
+  syllabusUrl String?
+
+  materials   Material[]
+  attendances Attendance[]
+  assignments Assignment[]
+}
+
+enum MaterialType {
+  VIDEO
+  NOTES
+  LINK
+}
+
+model Material {
+  id          String       @id @default(cuid())
+  title       String
+  type        MaterialType
+  url         String
+  courseId    String
+  uploaderId  String
+  createdAt   DateTime     @default(now())
+
+  course      Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  uploader    User         @relation(fields: [uploaderId], references: [id], onDelete: Cascade)
+}
+
+enum NoticeCategory {
+  EXAM
+  ADMISSION
+  EVENT
+  GENERAL
+}
+
+model Notice {
+  id          String         @id @default(cuid())
+  title       String
+  body        String
+  category    NoticeCategory @default(GENERAL)
+  pinned      Boolean        @default(false)
+  authorId    String
+  createdAt   DateTime       @default(now())
+
+  author      User           @relation(fields: [authorId], references: [id], onDelete: Cascade)
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  date        DateTime
+  imageUrl    String?
+  category    String?
+  createdAt   DateTime @default(now())
+}
+
+enum AchievementType {
+  STUDENT
+  FACULTY
+  MILESTONE
+}
+
+model Achievement {
+  id          String          @id @default(cuid())
+  title       String
+  description String
+  type        AchievementType
+  date        DateTime
+  imageUrl    String?
+}
+
+model Alumni {
+  id          String   @id @default(cuid())
+  name        String
+  batch       String
+  designation String?
+  company     String?
+  story       String?
+  photo       String?
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT
+  LATE
+}
+
+model Attendance {
+  id          String           @id @default(cuid())
+  studentId   String
+  courseId    String
+  date        DateTime
+  status      AttendanceStatus
+
+  student     StudentProfile   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  course      Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
+}
+
+model Assignment {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  dueDate     DateTime
+  courseId    String
+  creatorId   String
+  createdAt   DateTime @default(now())
+
+  course      Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  creator     User         @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  submissions Submission[]
+}
+
+model Submission {
+  id           String   @id @default(cuid())
+  assignmentId String
+  studentId    String
+  fileUrl      String
+  grade        Float?
+  submittedAt  DateTime @default(now())
+
+  assignment   Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  student      User       @relation(fields: [studentId], references: [id], onDelete: Cascade) // Linking to User instead of StudentProfile for simpler auth access, can be adjusted
+}
