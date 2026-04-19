@@ -98,9 +98,9 @@ async function main() {
 
   // 6. Create Events
   const eventsData = [
-    { title: 'Annual Science Fair 2026', description: 'Showcasing the best innovative projects from the department students.', date: new Date('2026-04-15') },
-    { title: 'SSTU Programming Contest', description: 'Inter-batch competitive programming event to sharpen coding skills.', date: new Date('2026-03-22') },
-    { title: 'Tech Talk: Web3 Evolution', description: 'Industry experts sharing insights about the future of the decentralized web.', date: new Date('2026-05-10') },
+    { title: 'Annual Science Fair 2026', description: 'Showcasing the best innovative projects from the department students.', date: new Date('2026-04-15'), time: '09:00 AM', location: 'Main Plaza' },
+    { title: 'SSTU Programming Contest', description: 'Inter-batch competitive programming event to sharpen coding skills.', date: new Date('2026-03-22'), time: '10:00 AM', location: 'Lab 302' },
+    { title: 'Tech Talk: Web3 Evolution', description: 'Industry experts sharing insights about the future of the decentralized web.', date: new Date('2026-05-10'), time: '02:00 PM', location: 'Auditorium' },
   ];
 
   for (const e of eventsData) {

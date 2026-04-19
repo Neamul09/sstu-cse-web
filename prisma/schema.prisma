@@ -112,6 +112,8 @@ model Event {
   title       String
   description String
   date        DateTime
+  time        String?
+  location    String?
   imageUrl    String?
   category    String?
   createdAt   DateTime @default(now())
@@ -140,6 +142,14 @@ model Alumni {
   company     String?
   story       String?
   photo       String?
+}
+
+model SystemSettings {
+  id               String  @id @default("global")
+  departmentName   String  @default("SSTU CSE")
+  maintenanceMode  Boolean @default(false)
+  supportEmail     String  @default("support.cse@sstu.edu")
+  lastBackup       DateTime?
 }
 
 

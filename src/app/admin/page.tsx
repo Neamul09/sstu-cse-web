@@ -42,7 +42,9 @@ export default async function AdminDashboard() {
             </p>
           </div>
           <div className="flex gap-3">
-             <button className="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-sm font-medium">System Logs</button>
+             <Link href="/admin/settings" className="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-sm font-medium flex items-center gap-2">
+               <Settings className="w-4 h-4" /> Portal Settings
+             </Link>
              <button className="px-5 py-2.5 rounded-xl bg-sst-teal text-black hover:bg-sst-teal/90 transition-all font-bold text-sm">Backup Core</button>
           </div>
         </div>
