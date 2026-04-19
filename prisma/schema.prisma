@@ -44,7 +44,6 @@ model StudentProfile {
   bio       String?
   
   user      User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  attendances Attendance[]
 }
 
 model TeacherProfile {
@@ -67,7 +66,6 @@ model Course {
   syllabusUrl String?
 
   materials   Material[]
-  attendances Attendance[]
   assignments Assignment[]
 }
 
@@ -144,22 +142,6 @@ model Alumni {
   photo       String?
 }
 
-enum AttendanceStatus {
-  PRESENT
-  ABSENT
-  LATE
-}
-
-model Attendance {
-  id          String           @id @default(cuid())
-  studentId   String
-  courseId    String
-  date        DateTime
-  status      AttendanceStatus
-
-  student     StudentProfile   @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  course      Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
-}
 
 model Assignment {
   id          String   @id @default(cuid())
