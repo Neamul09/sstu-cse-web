@@ -40,6 +40,30 @@ export default function AlumniPage() {
       </div>
 
       <div>
+        <h2 className="text-2xl font-outfit font-bold mb-8 border-l-4 border-l-green-500 pl-4">Alumni Feed & Opportunities</h2>
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {[
+            { tag: "Job", color: "bg-green-500/20 text-green-400", title: "Software Engineer Intern at Optimizely", author: "Nusrat Jahan", time: "2 days ago", desc: "We are hiring summer interns for our Dhaka office. Strong problem-solving skills required." },
+            { tag: "Event", color: "bg-purple-500/20 text-purple-400", title: "Alumni Meetup - Sylhet Tech Hub", author: "Tanvir Ahmed", time: "5 days ago", desc: "Join us this weekend for networking and a panel discussion on scaling startups in Bangladesh." },
+            { tag: "Update", color: "bg-blue-500/20 text-blue-400", title: "Promoted to Senior Cloud Architect", author: "Hasan Mahmud", time: "1 week ago", desc: "Happy to announce my transition to the AI division at Amazon Berlin!" }
+          ].map((feed, i) => (
+            <div key={i} className="glass-card rounded-xl p-6 hover:bg-white/[0.02] transition-colors border border-white/5">
+              <div className="flex justify-between items-center mb-3">
+                 <span className={`px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded ${feed.color}`}>{feed.tag}</span>
+                 <span className="text-xs text-muted-foreground">{feed.time}</span>
+              </div>
+              <h3 className="font-bold text-lg text-white mb-2">{feed.title}</h3>
+              <p className="text-sm text-white/70 mb-4">{feed.desc}</p>
+              <div className="flex items-center gap-2 pt-4 border-t border-white/10">
+                 <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">{feed.author[0]}</div>
+                 <span className="text-xs font-medium text-white/80">{feed.author}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
         <h2 className="text-2xl font-outfit font-bold mb-8 border-l-4 border-l-sst-gold pl-4">Alumni Directory</h2>
         
         <div className="flex flex-col md:flex-row gap-4 mb-8">

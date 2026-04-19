@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import { FileUp, Link as LinkIcon, DownloadCloud, FileText } from "lucide-react";
 
 export default function ClassroomSystem() {
-  const [courses, setCourses] = useState([]);
-  const [assignments, setAssignments] = useState([]);
+  const [courses, setCourses] = useState<any[]>([]);
+  const [assignments, setAssignments] = useState<any[]>([]);
 
   useEffect(() => {
     // Mock Fetch

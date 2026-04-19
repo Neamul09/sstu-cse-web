@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import { CheckCircle, XCircle, Clock } from "lucide-react";
 
 export default function AttendanceSystem() {
-  const [courses, setCourses] = useState([]);
-  const [students, setStudents] = useState([]);
+  const [courses, setCourses] = useState<any[]>([]);
+  const [students, setStudents] = useState<any[]>([]);
   const [selectedCourse, setSelectedCourse] = useState("");
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
 
