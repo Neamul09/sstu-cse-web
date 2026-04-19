@@ -25,21 +25,10 @@ export default async function CRDashboard() {
         <div className="glass-card rounded-2xl p-6 border-l-4 border-l-sst-teal">
           <div className="flex items-center gap-3 mb-2">
             <Users className="text-sst-teal w-5 h-5" />
-            <h3 className="font-semibold text-white">My Section</h3>
+            <h3 className="font-semibold text-white">Section B-21</h3>
           </div>
-          <p className="text-3xl font-bold mt-2">B-21</p>
-          <p className="text-sm text-muted-foreground mt-1">45 Students</p>
-        </div>
-        
-        <div className="glass-card rounded-2xl p-6 border-l-4 border-l-blue-500">
-          <div className="flex items-center gap-3 mb-2">
-            <ClipboardCheck className="text-blue-500 w-5 h-5" />
-            <h3 className="font-semibold text-white">Attendance</h3>
-          </div>
-          <p className="text-xl font-bold mt-2">Pending</p>
-          <p className="text-sm text-blue-400 mt-1 cursor-pointer hover:underline">
-            <a href="/dashboard/attendance">Mark for today's lab</a>
-          </p>
+          <p className="text-3xl font-bold mt-2">45</p>
+          <p className="text-sm text-muted-foreground mt-1">Total Students</p>
         </div>
 
         <div className="glass-card rounded-2xl p-6 border-l-4 border-l-sst-gold">
@@ -65,10 +54,10 @@ export default async function CRDashboard() {
         <div className="glass-card rounded-2xl p-6">
           <h2 className="text-xl font-outfit font-bold mb-4">Quick Actions</h2>
           <div className="grid grid-cols-2 gap-4">
-            <a href="/dashboard/attendance" className="flex flex-col items-center justify-center p-6 rounded-xl bg-white/5 border border-white/10 hover:border-sst-teal transition-all text-center group">
-              <ClipboardCheck className="w-8 h-8 text-white/50 group-hover:text-sst-teal mb-3 transition-colors" />
-              <span className="font-semibold text-sm">Mark Attendance</span>
-            </a>
+            <button className="flex flex-col items-center justify-center p-6 rounded-xl bg-white/5 border border-white/10 hover:border-sst-teal transition-all text-center group">
+              <PlusCircle className="w-8 h-8 text-white/50 group-hover:text-sst-teal mb-3 transition-colors" />
+              <span className="font-semibold text-sm">Post Notice</span>
+            </button>
             <button className="flex flex-col items-center justify-center p-6 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500 transition-all text-center group">
               <CalendarDays className="w-8 h-8 text-white/50 group-hover:text-blue-500 mb-3 transition-colors" />
               <span className="font-semibold text-sm">Schedule Event</span>

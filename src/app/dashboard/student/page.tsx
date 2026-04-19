@@ -31,10 +31,10 @@ export default async function StudentDashboard() {
         <div className="glass-card rounded-2xl p-6 border-l-4 border-l-blue-500">
           <div className="flex items-center gap-3 mb-2">
             <CheckCircle className="text-blue-500 w-5 h-5" />
-            <h3 className="font-semibold text-white">Avg Attendance</h3>
+            <h3 className="font-semibold text-white">Completed Credits</h3>
           </div>
-          <p className="text-3xl font-bold mt-2">85%</p>
-          <p className="text-sm text-muted-foreground mt-1">Across 5 courses</p>
+          <p className="text-3xl font-bold mt-2">124</p>
+          <p className="text-sm text-muted-foreground mt-1">out of 160</p>
         </div>
 
         <div className="glass-card rounded-2xl p-6 border-l-4 border-l-sst-gold">

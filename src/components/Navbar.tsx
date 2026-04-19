@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { LogOut, User } from 'lucide-react';
 import { signOut } from '@/lib/auth';
+import ThemeToggle from './ThemeToggle';
 
 export default async function Navbar() {
   const session = await auth();
@@ -28,6 +29,7 @@ export default async function Navbar() {
           <Link href="/contact" className="hover:text-sst-teal transition-colors">Contact</Link>
         </nav>
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           {session?.user ? (
             <>
               <Link 

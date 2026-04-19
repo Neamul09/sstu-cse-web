@@ -58,7 +58,6 @@ export default async function TeacherDashboard() {
                   <p className="text-sm text-muted-foreground mt-1">Next class: Tomorrow, 10:00 AM</p>
                 </div>
                 <div className="flex gap-2">
-                  <a href="/dashboard/attendance" className="text-xs bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded transition-colors">Attendance</a>
                   <a href="/dashboard/classroom" className="text-xs bg-sst-teal/20 text-sst-teal hover:bg-sst-teal/30 px-3 py-1.5 rounded transition-colors flex items-center gap-1">Classroom</a>
                 </div>
               </div>

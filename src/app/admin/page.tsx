@@ -104,7 +104,7 @@ export default async function AdminDashboard() {
                   { name: "Academic Syllabi", icon: BookText, href: "/admin/academics" },
                   { name: "Hall of Fame", icon: Award, href: "/admin/achievements" },
                 ].map((tool, i) => (
-                  <button key={i} className="w-full flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-transparent hover:border-white/10 transition-all group">
+                  <Link key={i} href={tool.href} className="w-full flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-transparent hover:border-white/10 transition-all group">
                     <div className="flex items-center gap-4">
                       <div className="p-2 rounded-lg bg-white/5 text-muted-foreground group-hover:text-sst-teal transition-colors">
                         <tool.icon className="w-4 h-4" />
@@ -112,7 +112,7 @@ export default async function AdminDashboard() {
                       <span className="font-semibold text-sm">{tool.name}</span>
                     </div>
                     <Settings className="w-4 h-4 text-muted-foreground/50 group-hover:rotate-45 transition-transform" />
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>

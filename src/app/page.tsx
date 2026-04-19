@@ -23,8 +23,8 @@ export default function Home() {
           </div>
           
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-outfit font-bold tracking-tight text-white mb-6">
-            Shape the Future. <br />
-            <span className="text-gradient">Innovate with Code.</span>
+            Computer Science and Engineering Department <br />
+            <span className="text-gradient">Official Portal</span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
@@ -36,7 +36,7 @@ export default function Home() {
               href="/student" 
               className="inline-flex h-12 w-full sm:w-auto items-center justify-center rounded-md bg-sst-teal px-8 text-sm font-medium text-black transition-colors hover:bg-sst-teal/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
-              Explore Programs
+              Explore Our Programs
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link 
@@ -53,10 +53,10 @@ export default function Home() {
       <section className="py-12 border-y border-white/10 bg-white/5 backdrop-blur-sm">
         <div className="container mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8 gap-y-12 text-center">
           {[
-            { label: "Active Students", value: "1,200+" },
-            { label: "Expert Faculty", value: "45+" },
-            { label: "Research Labs", value: "12" },
-            { label: "Alumni Worldwide", value: "5,000+" },
+            { label: "Active Students", value: "80+" },
+            { label: "Expert Faculty", value: "4+" },
+            { label: "Research Labs", value: "2" },
+            { label: "Alumni Worldwide", value: "0" },
           ].map((stat, i) => (
             <div key={i} className="space-y-2">
               <h4 className="text-4xl md:text-5xl font-outfit font-bold text-white">{stat.value}</h4>
